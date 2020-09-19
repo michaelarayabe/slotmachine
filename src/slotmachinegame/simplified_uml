@@ -1,0 +1,25 @@
+Simplified UML
+
+    Model/User:
+        usernames
+        dateOfAccountCreation
+        currency
+
+    Data/UserRepository
+        users (List)
+
+        - add()
+        - get()
+        - remove()
+
+    Data/PasswordRepository
+        passwords (Map userName - password)
+
+        - add()
+        - get()
+        - edit()
+        - remove()
+        - validateUserPassword()
+
+    Config/Sessions
+        static currentUser()

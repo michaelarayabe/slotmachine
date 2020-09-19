@@ -1,0 +1,21 @@
+User:
+    - login
+    - register
+
+When logged in:
+    - Play slots
+    - change password
+    - cancel account
+    - logout
+
+When playing:
+    - Has 5 Euro
+    - If WIN: wins 10 euro
+    - If LOSS: "You have lost"
+
+On account creation:
+    - give user 100 euro
+
+Saving data:
+    - User repository
+    - Password repository
