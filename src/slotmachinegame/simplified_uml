@@ -5,6 +5,13 @@ Simplified UML
         dateOfAccountCreation
         currency
 
+        removeCurrency()
+        addCurrency()
+
+    Model/SlotMachine:
+        playSlot()
+
+
     Data/UserRepository
         users (List)
 
@@ -19,7 +26,109 @@ Simplified UML
         - get()
         - edit()
         - remove()
-        - validateUserPassword()
+        - CheckValidUserPassword()
+        - checkIfUserNameExists()
 
     Config/Sessions
         static currentUser()
+
+    View/Identifier
+        identify()
+        register()
+        login()
+
+    View/Menu
+         askUserIfWantToPlay()
+
+
+The big picture of the program
+
+    - A user will sign up or login
+    - The user will play a game
+    - The user will continue to play till he stops
+
+Internal logic of the program
+
+    App/CasinoApp.java -> main()
+
+    Ask a user to sign up or sign in:
+    identify() : View/Identifier.java
+    loop
+        - askUserIfWantToPlay() : View/Menu.java
+            if yes: playSlot()  :  Model/SlotMachine.java
+            if no: exit
+
+
+    View/Identifier.java -> identify()
+        Do you want to sign up or sign in
+            if sign up: register() : View/Identifier.java
+            if sign in: login() : View/Identifier.java
+            else error, ask again
+
+    View/Identifier.java -> register()
+        Ask user for (username, password, confirm password)
+        checkIfUserNameExists() -> Data/PasswordRepository.java
+            if yes: try again
+            if no : addUser() : Data/UserRepository.java
+            return user
+
+    View/Identifier.java -> login()
+        Ask user for username and pass
+        CheckValidUserPassword() : Data/PasswordRepository
+            if valid : return user
+            if not valid : error and try again
+
+
+    Data/PasswordRepository.java -> checkIfUserNameExists()
+
+        if exists : true
+        if not : false
+            return user
+
+    Data/UserRepository.java -> addUser()
+        Create User
+        add 100 euro to user
+        add user to list
+
+
+
+
+    View/Menu.java -> askUserIfWantToPlay()
+        ask if he wants to play
+            if yes: true
+            if no : false
+
+
+
+    Model/SlotMachine.java -> playSlot()
+
+        checkIfEnoughCurrency()
+            if yes: continue
+            if no: exit
+
+        removeCurrency(5) : Model/User.java
+        generate random number
+            if(num > 19)
+                user wins
+                addCurrency(10) : Model/User.java
+            else
+                user loses
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
