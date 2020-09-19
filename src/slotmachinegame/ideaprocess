@@ -9,7 +9,7 @@ When logged in:
     - logout
 
 When playing:
-    - Has 5 Euro
+    - Spends 5 Euro
     - If WIN: wins 10 euro
     - If LOSS: "You have lost"
 

@@ -1,4 +1,6 @@
+==============
 Simplified UML
+==============
 
     Model/User:
         usernames
@@ -40,14 +42,17 @@ Simplified UML
     View/Menu
          askUserIfWantToPlay()
 
-
+------------------------------
 The big picture of the program
+------------------------------
 
     - A user will sign up or login
     - The user will play a game
     - The user will continue to play till he stops
 
+=============================
 Internal logic of the program
+=============================
 
     App/CasinoApp.java -> main()
 
