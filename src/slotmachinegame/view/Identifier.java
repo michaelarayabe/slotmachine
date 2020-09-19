@@ -2,7 +2,7 @@ package slotmachinegame.view;
 
 public class Identifier {
 
-    public void identifyUser(){
+    public static void identifyUser(){
 
     }
 
