@@ -6,14 +6,28 @@ import java.util.List;
 
 public class UserRepository {
 
-    List<User> users;
+    //START SINGLETON
+    private static UserRepository userRepository = new UserRepository();
 
-    public void addUser(){
+    private UserRepository(){
 
     }
 
-    public void getUser(){
+    public static UserRepository getUserRepository(){
+        return userRepository;
+    }
 
+    //END SINGLETON
+
+    List<User> users;
+
+    public void addUser(String username){
+
+    }
+
+    public User getUser(String username){
+
+        return null;
     }
 
     public void removeUser(){

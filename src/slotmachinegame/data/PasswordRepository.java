@@ -3,12 +3,24 @@ package slotmachinegame.data;
 import java.util.Map;
 
 public class PasswordRepository {
+    //SINGLETON DESIGN PATTERN
+    private static PasswordRepository passwordRepository = new PasswordRepository();
 
-    Map<String,String> passwords;
 
-    public void addPassword(){
+    private PasswordRepository(){
 
     }
+
+    public static PasswordRepository getPasswordRepository(){
+        return passwordRepository;
+    }
+
+    //END SINGLETON PART
+
+
+    //Key: username. Value: password
+    private Map<String,String> passwords;
+
 
     public void getPassword(){
 
@@ -20,7 +32,15 @@ public class PasswordRepository {
 
     public void removePassword(){}
 
-    public void checkValueUserPassword(){}
+    public boolean checkValidUserPassword(String username, String password){
 
-    public void checkIfUserNameExists(){}
+        return false;
+    }
+
+    public boolean checkIfUserNameExists(String username){
+        return false;
+    }
+
+    public void addPassword(String username, String password) {
+    }
 }

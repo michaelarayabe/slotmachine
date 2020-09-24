@@ -69,9 +69,12 @@ Internal logic of the program
             if sign up: register() : View/Identifier.java
             if sign in: login() : View/Identifier.java
             else error, ask again
+        set currentUser
+        return user
 
     View/Identifier.java -> register()
         Ask user for (username, password, confirm password)
+        check if pass and confirmed pass are the same
         checkIfUserNameExists() -> Data/PasswordRepository.java
             if yes: try again
             if no : addUser() : Data/UserRepository.java
