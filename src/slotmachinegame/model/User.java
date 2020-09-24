@@ -1,13 +1,20 @@
 package slotmachinegame.model;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
+import java.util.Objects;
 
 public class User {
 
     private String userName;
-    private LocalDateTime dateOfAccountCreation;
+    private LocalDate dateOfAccountCreation;
     private double currency;
 
+    public User(String userName){
+        this.userName = userName;
+        dateOfAccountCreation = LocalDate.now();
+        currency = 100;
+
+    }
     public String getUserName() {
         return userName;
     }
@@ -16,11 +23,11 @@ public class User {
         this.userName = userName;
     }
 
-    public LocalDateTime getDateOfAccountCreation() {
+    public LocalDate getDateOfAccountCreation() {
         return dateOfAccountCreation;
     }
 
-    public void setDateOfAccountCreation(LocalDateTime dateOfAccountCreation) {
+    public void setDateOfAccountCreation(LocalDate dateOfAccountCreation) {
         this.dateOfAccountCreation = dateOfAccountCreation;
     }
 
@@ -41,5 +48,20 @@ public class User {
             currency = 0;
         }
         currency -= currencyToRemove;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        User user = (User) o;
+        return Double.compare(user.currency, currency) == 0 &&
+                Objects.equals(userName, user.userName) &&
+                Objects.equals(dateOfAccountCreation, user.dateOfAccountCreation);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(userName, dateOfAccountCreation, currency);
     }
 }
